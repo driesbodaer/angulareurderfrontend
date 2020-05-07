@@ -8,19 +8,19 @@ import {catchError, tap} from "rxjs/operators";
   providedIn: 'root'
 })
 export class CustomerService {
-
+  // http://localhost:9000/customers
   constructor(private http: HttpClient) { }
 
   addCustomer(customer: Customer) {
-    return this.http.post<Customer[]>('http://localhost:9000/customers', customer);
+    return this.http.post<Customer[]>('https://backend-eurder.herokuapp.com/customers', customer);
   }
 
   getCustomers() {
-    return this.http.get<Customer[]>('http://localhost:9000/customers');
+    return this.http.get<Customer[]>('https://backend-eurder.herokuapp.com/customers');
   }
 
   getCustomer(firstname: string) {
-    return this.http.get<Customer>(`http://localhost:9000/customers/${firstname}`);
+    return this.http.get<Customer>(`https://backend-eurder.herokuapp.com/customers/${firstname}`);
   }
   searchCustomer(firstname: string): Observable<Customer> {
     // if (!firstname.trim()) {
@@ -28,7 +28,7 @@ export class CustomerService {
     //   return of([]);
     // }
 
-    return  this.http.get<Customer>(`http://localhost:9000/customers/${firstname}`);
+    return  this.http.get<Customer>(`https://backend-eurder.herokuapp.com/customers/${firstname}`);
       // .pipe(
       // tap(x => x.length ?
       //   this.log(`found heroes matching "${firstname}"`) :

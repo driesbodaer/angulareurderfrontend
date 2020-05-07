@@ -10,7 +10,7 @@ export class ItemService {
   constructor( private http: HttpClient)
   { }
 
-  private itemsUrl = 'http://localhost:9000/items';
+  private itemsUrl = 'https://backend-eurder.herokuapp.com/items';
 
 
   getItems() {
@@ -18,14 +18,14 @@ export class ItemService {
   }
 
   getItem(name: string) {
-    return this.http.get<Item>(`http://localhost:9000/items/${name}`);
+    return this.http.get<Item>(`https://backend-eurder.herokuapp.com/items/${name}`);
   }
 
   addItem(item: Item ) {
-    return this.http.post<Item>(`http://localhost:9000/items`, item);
+    return this.http.post<Item>(`https://backend-eurder.herokuapp.com/items`, item);
   }
 
   updateItem(item: Item ) {
-    return this.http.put<Item>(`http://localhost:9000/items/${item.name}`, item);
+    return this.http.put<Item>(`https://backend-eurder.herokuapp.com/${item.name}`, item);
   }
 }

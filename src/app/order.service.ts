@@ -16,11 +16,11 @@ export class OrderService {
   itemgroupToAdd: Itemgroup;
 
   getOrders() {
-    return this.http.get('http://localhost:9000/orders');
+    return this.http.get('https://backend-eurder.herokuapp.com/orders');
   }
 
   addOrder(order: Order) {
-    return this.http.post('http://localhost:9000/orders', order);
+    return this.http.post('https://backend-eurder.herokuapp.com/orders', order);
   }
 
 
