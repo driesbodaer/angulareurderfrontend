@@ -1,0 +1,60 @@
+<body class="d-print-block, bg-info">
+
+
+
+
+
+<h1> search:</h1>
+<input #searchbox [(ngModel)]="searchtext">
+<ul  >
+  <li *ngFor="let customer of customers | filter : searchtext">
+    <!--    <div (click)="select(item)">{{item.name | uppercase}}</div>-->
+    <div class="badge-pill">
+      <div routerLink="/customer/{{customer.firstname}}">{{customer.firstname | uppercase}}</div>
+      <div>firstname: {{customer.firstname}}</div>
+      <div>lastname: {{customer.lastname}}</div>
+      <div>country: {{customer.address.country}}</div>
+      <div>streetname: {{customer.address.streetName}}</div>
+      <div>housenumber: {{customer.address.houseNumber}}</div>
+      <div>postalcode: {{customer.address.postalCode}}</div>
+    </div>
+  </li>
+</ul>
+
+
+<h1> Customers:</h1>
+
+<ul  >
+  <li *ngFor="let customer of customers">
+    <!--    <div (click)="select(item)">{{item.name | uppercase}}</div>-->
+    <div class="badge-pill">
+    <div routerLink="/customer/{{customer.firstname}}">{{customer.firstname | uppercase}}</div>
+    <div>firstname: {{customer.firstname}}</div>
+    <div>lastname: {{customer.lastname}}</div>
+    <div>country: {{customer.address.country}}</div>
+      <div>streetname: {{customer.address.streetName}}</div>
+      <div>housenumber: {{customer.address.houseNumber}}</div>
+      <div>postalcode: {{customer.address.postalCode}}</div>
+    </div>
+  </li>
+</ul>
+
+<input #searchbox (input)="onInput(searchbox.value)">
+
+<ul >
+  <li *ngFor="let customer of customersREAL$ | async">
+    <!--    <div (click)="select(item)">{{item.name | uppercase}}</div>-->
+    <div routerLink="/customer/{{customer.firstname}}">{{customer.firstname | uppercase}}</div>
+    <div>firstname: {{customer.firstname}}</div>
+    <div>lastname: {{customer.lastname}}</div>
+    <div>country: {{customer.address.country}}</div>
+    <div>streetname: {{customer.address.streetName}}</div>
+    <div>housenumber: {{customer.address.houseNumber}}</div>
+    <div>postalcode: {{customer.address.postalCode}}</div>
+  </li>
+</ul>
+
+</body>
+
+
+

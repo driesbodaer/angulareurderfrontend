@@ -1,0 +1,13 @@
+<div >
+  <div>SEARCH:</div>
+  <input #searchBox [(ngModel)]="name" (input)="onInput()"/>
+
+  <ul >
+    <li *ngFor="let item of filteredItemsreal$ | async">
+      <a routerLink="/item/{{item.name}}">
+        {{item.name}}
+      </a>
+    </li>
+  </ul>
+
+</div>

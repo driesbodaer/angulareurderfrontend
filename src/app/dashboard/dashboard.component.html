@@ -1,0 +1,19 @@
+
+
+<div class="jumbotron">
+<h3>Top Selling Items</h3>
+</div>
+<div class="grid grid-pad" >
+  <a *ngFor="let item of items" class="col-1-4">
+    <div class="module hero" routerLink="/item/{{item.name}}">
+      <h4>{{item.name}}</h4>
+    </div>
+  </a>
+</div>
+
+<!--<app-item-search></app-item-search>-->
+<app-item-search2></app-item-search2>
+
+
+
+

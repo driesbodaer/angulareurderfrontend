@@ -1,0 +1,35 @@
+
+<body>
+<div>
+  <h1>searchbox 1</h1>
+  <input #searchbox (input)="onInput(searchbox.value)">
+
+  <!--<ul >-->
+  <!--  <li *ngFor="let customer of customers$ | async">-->
+  <!--    <div (click)="select(item)">{{item.name | uppercase}}</div>-->
+  <div routerLink="/customer/{{customer.firstname}}">{{customer.firstname | uppercase}}</div>
+  <div>firstname: {{customer.firstname}}</div>
+  <div>lastname: {{customer.lastname}}</div>
+  <div>country: {{customer.address.country}}</div>
+  <div>streetname: {{customer.address.streetName}}</div>
+  <div>housenumber: {{customer.address.houseNumber}}</div>
+  <div>postalcode: {{customer.address.postalCode}}</div>
+  <!--  </li>-->
+  <!--</ul>-->
+</div>
+
+<div>
+  <h1>searchbox 2</h1>
+  <input #searchbox2 [(ngModel)]="searchText">
+
+  <ul >
+    <li *ngFor="let customer of customers | filter:searchText | async">
+  <!--    <div (click)="select(item)">{{item.name | uppercase}}</div>-->
+  <div routerLink="/customer/{{customer.firstname}}">{{customer.firstname | uppercase}}</div>
+      <div>{{customer.firstname}}} </div>
+    </li>
+  </ul>
+</div>
+</body>
+
+

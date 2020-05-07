@@ -1,0 +1,11 @@
+
+
+<h2>{{customer.firstname | uppercase}} Details</h2>
+<div>lastname: {{customer.lastname}}</div>
+<div>address: {{customer.address.postalCode}}</div>
+<div>housenumber: {{customer.address.houseNumber}}</div>
+<div>country: {{customer.address.country}}</div>
+
+
+
+<button (click)="goBack()">go back</button>

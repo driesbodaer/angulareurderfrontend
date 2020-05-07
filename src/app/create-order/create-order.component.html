@@ -1,0 +1,27 @@
+<body>
+<div>orderId</div>
+<input #orderId  placeholder="orderId">
+<div>itemGROUP:</div>
+<div>itemId</div>
+<input #itemId  placeholder="itemId ">
+
+
+<div>Amount</div>
+<input #orderedAmount [(ngModel)]="orderedamount" placeholder="orderedAmount ">
+
+<div>StreetName </div>
+<input #streetName  placeholder="streetname">
+<div>postalCode</div>
+<input #postalCode  placeholder="postalcode">
+<div>houseNumber</div>
+<input #houseNumber  placeholder="housenumber">
+<div>country</div>
+<input #country   placeholder="country">
+
+<button (click)="makeOrder(orderId.value,itemId.value, streetName.value, postalCode.value, houseNumber.value, country.value ); orderId.value = '';itemId.value= ''; streetName.value= ''; postalCode.value= ''; houseNumber.value= ''; country.value= '' ">
+  make order</button>
+
+
+
+</body>
+

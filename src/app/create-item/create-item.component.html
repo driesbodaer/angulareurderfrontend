@@ -1,0 +1,15 @@
+<body>
+<div>Name</div>
+<input #itemname  placeholder="name">
+<div>Description</div>
+<input #itemdescription  placeholder="description">
+<div>Price</div>
+<input #itemprice [(ngModel)]="pricee" placeholder="1">
+<div>Amount</div>
+<input #itemstock [(ngModel)]="stocke"  placeholder="1">
+
+<button (click)="showAdd(itemname.value,itemdescription.value ); itemname.value = ' '; itemdescription.value = '' ; itemprice.value  = '' ; itemstock.value = '' ">Add Item</button>
+
+
+
+</body>

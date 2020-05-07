@@ -144,5 +144,6 @@
   },
   "rulesDirectory": [
     "codelyzer"
-  ]
+  ],
+  "parser":"babel-eslint"
 }

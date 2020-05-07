@@ -1,0 +1,67 @@
+<div>
+  <h1> basketOrder:</h1>
+
+  <ul>
+    <li *ngFor="let itemgroup of basketItemgroups">
+      <div>
+     name: {{itemgroup.item.name}}
+    </div>
+      <div>
+        price: {{itemgroup.item.price * itemgroup.orderedAmount}}
+      </div>
+      <div>
+      amount:  {{itemgroup.orderedAmount}}
+      </div>
+        <button (click)="remove(itemgroup)">remove</button>
+    </li>
+  </ul>
+
+
+<!--  <div>orderId</div>-->
+<!--  <input #orderId  [(ngModel)]="orderId1"  placeholder="orderId">-->
+<!--  <div>itemGROUP:</div>-->
+<!--  <div>itemId</div>-->
+<!--  <input #itemId [(ngModel)]="itemId1"  placeholder="itemId ">-->
+
+
+<!--  <div>Amount</div>-->
+<!--  <input #orderedAmount [(ngModel)]="orderedAmount1" placeholder="orderedAmount ">-->
+
+<!--  <div>StreetName </div>-->
+<!--  <input #streetName [(ngModel)]="streetName1"  placeholder="streetname">-->
+<!--  <div>postalCode</div>-->
+<!--  <input #postalCode [(ngModel)]="postalCode1"  placeholder="postalcode">-->
+<!--  <div>houseNumber</div>-->
+<!--  <input #houseNumber [(ngModel)]="houseNumber1"  placeholder="housenumber">-->
+<!--  <div>country</div>-->
+<!--  <input #country [(ngModel)]="country1"   placeholder="country">-->
+
+  <button (click)="placeOrder()">placeOrder</button>
+
+  <div>
+    <h2>selectedorder:</h2>
+    <div>ID: {{basketorder.orderId}}</div>
+
+
+    <div>ordergroups: {{basketorder.itemGroups}}</div>
+
+
+    <div>address: {{basketorder.address.streetName}}</div>
+  </div>
+
+  <h1> Orders:</h1>
+  <ul>
+    <li *ngFor="let order of orders">
+      <div>ID: {{order.orderId}}</div>
+
+
+      <div>ordergroups: {{order.itemGroups}}</div>
+
+
+      <div>address: {{order.address.streetName}}</div>
+
+    </li>
+
+  </ul>
+
+</div>

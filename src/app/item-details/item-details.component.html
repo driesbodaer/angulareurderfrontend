@@ -1,0 +1,30 @@
+
+<button (click)="orderItem()">Order Item</button>
+
+<h2>{{item.name | uppercase}} Details</h2>
+<div>desc: {{item.description}}</div>
+<div>amount: {{item.amountOfStock}}</div>
+<div>price: {{item.price}}</div>
+<div>urgency: {{item.stockUrgency}}</div>
+
+
+
+
+<button (click)="goBack()">go back</button>
+
+
+<body>
+
+<h2>{{item.name | uppercase}} to update</h2>
+<div>Description</div>
+<input #itemdescription  placeholder="item.description">
+<div>Price</div>
+<input #itemprice [(ngModel)]="pricee" placeholder="item.price">
+<div>Amount</div>
+<input #itemstock [(ngModel)]="stocke"  placeholder="item.stockUrgency">
+
+<button (click)="update(itemdescription.value ); ">update Item</button>
+
+
+
+</body>

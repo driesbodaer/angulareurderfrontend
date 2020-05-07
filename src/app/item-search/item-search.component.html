@@ -1,0 +1,28 @@
+<div >
+<div>SEARCH:</div>
+<input #searchBox (input)="search(searchBox.value)" />
+
+<ul >
+  <li *ngFor="let item of items$ | async" >
+    <a routerLink="/item/{{item.name}}">
+      {{item.name}}
+    </a>
+  </li>
+</ul>
+
+</div>
+
+<div >
+<div>SEARCH2!:</div>
+<input #searchBox (input)="search2(searchBox.value)" />
+
+<ul >
+  <li *ngFor="let item of items$ | filter : '{{filter1}}'" >
+    <a routerLink="/item/{{item.name}}">
+      {{item.name}}
+    </a>
+  </li>
+</ul>
+
+</div>
+

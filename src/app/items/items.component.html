@@ -1,0 +1,23 @@
+<body class="bg-light">
+<div class="align-self-center">
+<h1 class="h-25" > Items:</h1>
+<div class="list-group-item">
+<button (click)="refresh()">Refresh</button>
+<ul >
+  <li *ngFor="let item of items">
+<!--    <div (click)="select(item)">{{item.name | uppercase}}</div>-->
+    <div class="bg-light">
+    <div routerLink="/item/{{item.name}}">{{item.name | uppercase}}</div>
+    <div>desc: {{item.description}}</div>
+    <div>amount: {{item.amountOfStock}}</div>
+    <div>price: {{item.price}}</div>
+    <div>urgency: {{item.stockUrgency}}</div>
+    <img src="https://timmersps.nl/wp-content/uploads/2017/11/img-placeholder.png" alt="itemimage">
+    </div>
+  </li>
+</ul>
+  </div>
+</div>
+</body>
+
+

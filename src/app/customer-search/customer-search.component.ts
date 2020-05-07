@@ -1,0 +1,49 @@
+import { Component, OnInit } from '@angular/core';
+import {Observable, Subject} from "rxjs";
+import {Customer} from "../customer";
+import {debounceTime, distinctUntilChanged, switchMap} from "rxjs/operators";
+import {CustomerService} from "../customer-service.service";
+import {Address} from "../address";
+import {Email} from "../email";
+import {phonenumber} from "../phonenumber";
+
+@Component({
+  selector: 'app-customer-search',
+  templateUrl: './customer-search.component.html',
+  styleUrls: ['./customer-search.component.css']
+})
+export class CustomerSearchComponent implements OnInit {
+
+  customers: Customer[];
+  customers$: Observable<Customer>;
+  customers$2: Observable<Customer[]>;
+  private searchTerms = new Subject<string>();
+customer: Customer;
+
+  searchText: string;
+
+  constructor(private customerService: CustomerService) {}
+
+  // Push a search term into the observable stream.
+  onInput(term: string): void {
+    this.searchTerms.next(term);
+  }
+
+  ngOnInit(): void {
+    this.customers$ = this.searchTerms.pipe(
+      // wait 300ms after each keystroke before considering the term
+      debounceTime(300),
+
+      // ignore new term if same as previous term
+      distinctUntilChanged(),
+
+      // switch to new search observable each time the term changes
+      switchMap((term: string) => this.customerService.searchCustomer(term)),
+    );
+
+    this.customers$.subscribe(x => this.customer = x);
+    this.customers$2 =  this.customerService.getCustomers();
+    this.customerService.getCustomers().subscribe(customers => this.customers = customers);
+  }
+
+}
